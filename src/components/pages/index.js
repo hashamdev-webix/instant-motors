@@ -1,0 +1,9 @@
+export { default as Home } from './Home/Home';
+export { default as Rentals } from './Rentals/Rentals';
+export { default as BuyCars } from './BuyCars/BuyCars';
+export { default as SellCar } from './SellCar/SellCar';
+export { default as RoadsideAssistance } from './RoadsideAssistance/RoadsideAssistance';
+export { default as Membership } from './Membership/Membership';
+export { default as Contact } from './Contact/Contact';
+export { default as BookNow } from './BookNow/BookNow';
+export { default as TruckDriver } from './TruckDriver/TruckDriver';

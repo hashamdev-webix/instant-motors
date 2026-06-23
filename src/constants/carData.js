@@ -1,0 +1,230 @@
+// src/constants/carData.js
+
+export const CAR_TYPES = {
+  SEDAN: 'Sedan',
+  SUV: 'SUV',
+  LUXURY: 'Luxury',
+  ELECTRIC: 'Electric',
+  TRUCK: 'Truck',
+  VAN: 'Van',
+  SPORTS: 'Sports',
+  CONVERTIBLE: 'Convertible',
+};
+
+export const CAR_TYPES_OPTIONS = [
+  { value: '', label: 'All Types' },
+  { value: CAR_TYPES.SEDAN, label: 'Sedan' },
+  { value: CAR_TYPES.SUV, label: 'SUV' },
+  { value: CAR_TYPES.LUXURY, label: 'Luxury' },
+  { value: CAR_TYPES.ELECTRIC, label: 'Electric' },
+  { value: CAR_TYPES.TRUCK, label: 'Truck' },
+  { value: CAR_TYPES.VAN, label: 'Van' },
+  { value: CAR_TYPES.SPORTS, label: 'Sports' },
+  { value: CAR_TYPES.CONVERTIBLE, label: 'Convertible' },
+];
+
+export const TRANSMISSION_TYPES = {
+  AUTOMATIC: 'Automatic',
+  MANUAL: 'Manual',
+  CVT: 'CVT',
+  SEMI_AUTOMATIC: 'Semi-Automatic',
+};
+
+export const TRANSMISSION_OPTIONS = [
+  { value: '', label: 'All Transmissions' },
+  { value: TRANSMISSION_TYPES.AUTOMATIC, label: 'Automatic' },
+  { value: TRANSMISSION_TYPES.MANUAL, label: 'Manual' },
+  { value: TRANSMISSION_TYPES.CVT, label: 'CVT' },
+  { value: TRANSMISSION_TYPES.SEMI_AUTOMATIC, label: 'Semi-Automatic' },
+];
+
+export const FUEL_TYPES = {
+  PETROL: 'Petrol',
+  DIESEL: 'Diesel',
+  ELECTRIC: 'Electric',
+  HYBRID: 'Hybrid',
+  CNG: 'CNG',
+};
+
+export const FUEL_OPTIONS = [
+  { value: '', label: 'All Fuels' },
+  { value: FUEL_TYPES.PETROL, label: 'Petrol' },
+  { value: FUEL_TYPES.DIESEL, label: 'Diesel' },
+  { value: FUEL_TYPES.ELECTRIC, label: 'Electric' },
+  { value: FUEL_TYPES.HYBRID, label: 'Hybrid' },
+  { value: FUEL_TYPES.CNG, label: 'CNG' },
+];
+
+export const SEATS_OPTIONS = [
+  { value: '', label: 'Any Seats' },
+  { value: '2', label: '2 Seats' },
+  { value: '4', label: '4 Seats' },
+  { value: '5', label: '5 Seats' },
+  { value: '7', label: '7 Seats' },
+  { value: '8', label: '8+ Seats' },
+];
+
+export const CAR_CONDITIONS = {
+  EXCELLENT: 'Excellent',
+  VERY_GOOD: 'Very Good',
+  GOOD: 'Good',
+  FAIR: 'Fair',
+};
+
+export const CAR_CONDITION_OPTIONS = [
+  { value: '', label: 'Select Condition' },
+  { value: CAR_CONDITIONS.EXCELLENT, label: 'Excellent' },
+  { value: CAR_CONDITIONS.VERY_GOOD, label: 'Very Good' },
+  { value: CAR_CONDITIONS.GOOD, label: 'Good' },
+  { value: CAR_CONDITIONS.FAIR, label: 'Fair' },
+];
+
+// ADD THIS - BODY TYPE OPTIONS
+export const BODY_TYPES = {
+  SEDAN: 'Sedan',
+  SUV: 'SUV',
+  HATCHBACK: 'Hatchback',
+  COUPE: 'Coupe',
+  CONVERTIBLE: 'Convertible',
+  WAGON: 'Wagon',
+  VAN: 'Van',
+  TRUCK: 'Truck',
+  CROSSOVER: 'Crossover',
+};
+
+export const BODY_TYPE_OPTIONS = [
+  { value: '', label: 'All Body Types' },
+  { value: BODY_TYPES.SEDAN, label: 'Sedan' },
+  { value: BODY_TYPES.SUV, label: 'SUV' },
+  { value: BODY_TYPES.HATCHBACK, label: 'Hatchback' },
+  { value: BODY_TYPES.COUPE, label: 'Coupe' },
+  { value: BODY_TYPES.CONVERTIBLE, label: 'Convertible' },
+  { value: BODY_TYPES.WAGON, label: 'Wagon' },
+  { value: BODY_TYPES.VAN, label: 'Van' },
+  { value: BODY_TYPES.TRUCK, label: 'Truck' },
+  { value: BODY_TYPES.CROSSOVER, label: 'Crossover' },
+];
+
+// Mock car data for development
+export const MOCK_CARS = [
+  {
+    id: 1,
+    name: 'Tesla Model 3',
+    brand: 'Tesla',
+    price: 45000,
+    year: 2023,
+    mileage: 5000,
+    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600',
+    type: CAR_TYPES.ELECTRIC,
+    transmission: TRANSMISSION_TYPES.AUTOMATIC,
+    seats: 5,
+    fuelType: FUEL_TYPES.ELECTRIC,
+    color: 'White',
+    condition: CAR_CONDITIONS.EXCELLENT,
+    description: 'Experience the future of driving with this Tesla Model 3. Features include autopilot, premium interior, and long-range battery.',
+    features: ['Autopilot', 'Premium Sound', 'Glass Roof', 'Heated Seats'],
+    rating: 4.9,
+    available: true,
+    pricePerDay: 85,
+  },
+  {
+    id: 2,
+    name: 'BMW 3 Series',
+    brand: 'BMW',
+    price: 38000,
+    year: 2022,
+    mileage: 12000,
+    image: 'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?w=600',
+    type: CAR_TYPES.LUXURY,
+    transmission: TRANSMISSION_TYPES.AUTOMATIC,
+    seats: 5,
+    fuelType: FUEL_TYPES.PETROL,
+    color: 'Black',
+    condition: CAR_CONDITIONS.VERY_GOOD,
+    description: 'Luxury and performance combined in this BMW 3 Series. Perfect for those who appreciate premium driving experience.',
+    features: ['Leather Seats', 'Sunroof', 'Navigation', 'Parking Sensors'],
+    rating: 4.7,
+    available: true,
+    pricePerDay: 65,
+  },
+  {
+    id: 3,
+    name: 'Audi Q5',
+    brand: 'Audi',
+    price: 42000,
+    year: 2023,
+    mileage: 8000,
+    image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600',
+    type: CAR_TYPES.SUV,
+    transmission: TRANSMISSION_TYPES.AUTOMATIC,
+    seats: 5,
+    fuelType: FUEL_TYPES.DIESEL,
+    color: 'Blue',
+    condition: CAR_CONDITIONS.EXCELLENT,
+    description: 'The Audi Q5 offers the perfect balance of luxury, comfort, and capability. Ideal for families and adventure seekers.',
+    features: ['Quattro AWD', 'Panoramic Roof', 'Virtual Cockpit', 'B&O Sound'],
+    rating: 4.8,
+    available: false,
+    pricePerDay: 75,
+  },
+  {
+    id: 4,
+    name: 'Toyota Camry',
+    brand: 'Toyota',
+    price: 28000,
+    year: 2022,
+    mileage: 15000,
+    image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600',
+    type: CAR_TYPES.SEDAN,
+    transmission: TRANSMISSION_TYPES.AUTOMATIC,
+    seats: 5,
+    fuelType: FUEL_TYPES.PETROL,
+    color: 'Silver',
+    condition: CAR_CONDITIONS.GOOD,
+    description: 'Reliable and comfortable, the Toyota Camry is a top choice for daily commutes and long journeys.',
+    features: ['Apple CarPlay', 'Lane Assist', 'Adaptive Cruise', 'Keyless Entry'],
+    rating: 4.5,
+    available: true,
+    pricePerDay: 45,
+  },
+  {
+    id: 5,
+    name: 'Honda CR-V',
+    brand: 'Honda',
+    price: 32000,
+    year: 2023,
+    mileage: 10000,
+    image: 'https://images.unsplash.com/photo-1568844293986-8d0400bd4745?w=600',
+    type: CAR_TYPES.SUV,
+    transmission: TRANSMISSION_TYPES.CVT,
+    seats: 5,
+    fuelType: FUEL_TYPES.HYBRID,
+    color: 'Gray',
+    condition: CAR_CONDITIONS.VERY_GOOD,
+    description: 'The Honda CR-V Hybrid combines efficiency with practicality. Perfect for eco-conscious families.',
+    features: ['Hybrid System', 'Honda Sensing', 'Wireless Charging', 'Cargo Space'],
+    rating: 4.6,
+    available: true,
+    pricePerDay: 55,
+  },
+  {
+    id: 6,
+    name: 'Ford F-150',
+    brand: 'Ford',
+    price: 48000,
+    year: 2023,
+    mileage: 3000,
+    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600',
+    type: CAR_TYPES.TRUCK,
+    transmission: TRANSMISSION_TYPES.AUTOMATIC,
+    seats: 5,
+    fuelType: FUEL_TYPES.DIESEL,
+    color: 'Red',
+    condition: CAR_CONDITIONS.EXCELLENT,
+    description: 'The iconic Ford F-150 is built for work and play. Powerful engine, spacious cabin, and unmatched capability.',
+    features: ['Tow Package', 'Bed Liner', 'Step Bars', 'Off-Road Tires'],
+    rating: 4.7,
+    available: true,
+    pricePerDay: 95,
+  },
+];
