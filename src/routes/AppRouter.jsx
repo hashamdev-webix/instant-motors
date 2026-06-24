@@ -5,16 +5,15 @@ import Loader from '../components/common/Loader';
 import CarDetails from '../components/pages/BuyCars/CarDetails';
 
 // Lazy load pages for better performance
-const Home = lazy(() => import('../components/pages/home/Home.jsx'));
+const Home = lazy(() => import('../components/pages/Home/Home.jsx'));
 const Rentals = lazy(() => import('../components/pages/Rentals/Rentals.jsx'));
 const BuyCars = lazy(() => import('../components/pages/BuyCars/BuyCars.jsx'));
 const SellCar = lazy(() => import('../components/pages/SellCar/SellCar.jsx'));
-const RoadsideAssistance = lazy(() => import('../components/pages/RoadsideAssistance/RoadsideAssistance.jsx')); // ✅ Fixed
+const RoadsideAssistance = lazy(() => import('../components/pages/RoadsideAsistance/RoadsideAssistance.jsx')); // ✅ Fixed
 const Membership = lazy(() => import('../components/pages/Membership/Membership.jsx')); // ✅ Fixed
-const Contact = lazy(() => import('../components/pages/contact/Contact.jsx'));
+const Contact = lazy(() => import('../components/pages/Contact/Contact.jsx'));
 const BookNow = lazy(() => import('../components/pages/BookNow/BookNow.jsx'));
 const TruckDriver = lazy(() => import('../components/pages/TruckDriver/TruckDriver.jsx'));
-
 const AppRouter = () => {
   return (
     <Suspense fallback={<Loader fullScreen />}>
