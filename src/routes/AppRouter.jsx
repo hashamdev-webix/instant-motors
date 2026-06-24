@@ -5,7 +5,7 @@ import Loader from '../components/common/Loader';
 import CarDetails from '../components/pages/BuyCars/CarDetails';
 
 // Lazy load pages for better performance
-const Home = lazy(() => import('../components/pages/Home/Home.jsx'));
+const Home = lazy(() => import('../components/pages/home/Home.jsx'));
 const Rentals = lazy(() => import('../components/pages/Rentals/Rentals.jsx'));
 const BuyCars = lazy(() => import('../components/pages/BuyCars/BuyCars.jsx'));
 const SellCar = lazy(() => import('../components/pages/SellCar/SellCar.jsx'));
