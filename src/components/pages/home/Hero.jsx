@@ -1,7 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaCar, FaTruck, FaHeadset, FaShieldAlt, FaClock, FaUsers } from 'react-icons/fa';
-import { BsFillPlayCircleFill } from 'react-icons/bs';
+// Removed unused BsFillPlayCircleFill import
 import { MdCarRental, MdSell } from 'react-icons/md';
 
 const Hero = () => {
