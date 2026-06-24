@@ -11,7 +11,7 @@ const BuyCars = lazy(() => import('../components/pages/BuyCars/BuyCars.jsx'));
 const SellCar = lazy(() => import('../components/pages/SellCar/SellCar.jsx'));
 const RoadsideAssistance = lazy(() => import('../components/pages/RoadsideAssistance/RoadsideAssistance.jsx')); // ✅ Fixed
 const Membership = lazy(() => import('../components/pages/Membership/Membership.jsx')); // ✅ Fixed
-const Contact = lazy(() => import('../components/pages/Contact/Contact.jsx'));
+const Contact = lazy(() => import('../components/pages/contact/Contact.jsx'));
 const BookNow = lazy(() => import('../components/pages/BookNow/BookNow.jsx'));
 const TruckDriver = lazy(() => import('../components/pages/TruckDriver/TruckDriver.jsx'));
 
