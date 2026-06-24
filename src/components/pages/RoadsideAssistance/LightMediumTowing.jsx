@@ -2,26 +2,33 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  FaClock, FaPhoneAlt, FaShieldAlt, FaTruck, 
-  FaCheckCircle, FaArrowRight, FaHeadset,
-  FaTachometerAlt, FaUsers, FaStar, FaAmbulance
+  FaCar, FaCheckCircle, FaArrowRight, FaPhoneAlt,
+  FaHeadset, FaShieldAlt, FaUsers, FaTachometerAlt,
+  FaClock, FaTruck, FaCarSide, FaBus
 } from 'react-icons/fa';
 
-const EmergencyTowing = () => {
+const LightMediumTowing = () => {
   const features = [
-    { icon: <FaClock className="text-xl md:text-2xl" />, title: '24/7 Availability', desc: 'Around the clock service' },
-    { icon: <FaTachometerAlt className="text-xl md:text-2xl" />, title: 'Fast Response', desc: '15-30 min arrival' },
+    { icon: <FaCar className="text-xl md:text-2xl" />, title: 'All Vehicles', desc: 'Cars, vans, SUVs' },
+    { icon: <FaClock className="text-xl md:text-2xl" />, title: 'Fast Response', desc: 'Quick dispatch' },
     { icon: <FaShieldAlt className="text-xl md:text-2xl" />, title: 'Fully Insured', desc: 'Complete coverage' },
     { icon: <FaUsers className="text-xl md:text-2xl" />, title: 'Expert Team', desc: 'Certified professionals' },
   ];
 
+  const vehicles = [
+    { name: 'Sedans', icon: <FaCar className="text-3xl md:text-4xl" /> },
+    { name: 'SUVs', icon: <FaCarSide className="text-3xl md:text-4xl" /> },
+    { name: 'Vans', icon: <FaBus className="text-3xl md:text-4xl" /> },
+    { name: 'Light Trucks', icon: <FaTruck className="text-3xl md:text-4xl" /> },
+  ];
+
   const benefits = [
-    'Immediate response time',
+    'Fast and reliable service',
     'Fully licensed and insured',
     'Professional and courteous staff',
     'Competitive and transparent pricing',
     'State-of-the-art towing equipment',
-    'Available in all service areas'
+    'Available 24/7 for emergencies'
   ];
 
   return (
@@ -30,7 +37,7 @@ const EmergencyTowing = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1600")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=1600")',
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-blue-700/40" />
@@ -44,28 +51,28 @@ const EmergencyTowing = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-flex items-center gap-2 bg-blue-500/20 backdrop-blur-md border border-blue-400/30 rounded-full px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6">
-                <FaClock className="text-blue-300 text-sm md:text-base" />
-                <span className="text-white text-xs md:text-sm font-medium">24/7 Emergency Service</span>
+                <FaCar className="text-blue-300 text-sm md:text-base" />
+                <span className="text-white text-xs md:text-sm font-medium">Light & Medium Duty Towing</span>
               </span>
               
               <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                24/7 Emergency 
+                Light & Medium 
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100">
-                  Towing Services
+                  Duty Towing
                 </span>
               </h1>
               
               <p className="text-white/90 text-sm sm:text-base md:text-lg mt-3 md:mt-4 max-w-2xl">
-                Immediate towing assistance available round the clock. 
-                Fast response, professional service, and competitive rates.
+                Reliable towing for cars, vans, SUVs, and light trucks. 
+                Fast, affordable, and professional service.
               </p>
 
               <div className="flex flex-wrap gap-3 md:gap-4 mt-4 md:mt-6">
                 <a href="tel:+18005550199" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2.5 md:py-3 px-5 md:px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/30 flex items-center gap-2 text-sm md:text-base">
-                  <FaPhoneAlt /> Call Now: +1-800-555-0199
+                  <FaPhoneAlt /> Call Now
                 </a>
                 <Link to="/contact" className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 font-semibold py-2.5 md:py-3 px-5 md:px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-sm md:text-base">
-                  <FaHeadset /> Request Help
+                  <FaHeadset /> Get Help
                 </Link>
               </div>
             </motion.div>
@@ -76,6 +83,15 @@ const EmergencyTowing = () => {
       {/* Features - KEEP EXACTLY AS IS */}
       <section className="py-10 md:py-14 bg-gray-50">
         <div className="container-custom">
+          <div className="text-center mb-8 md:mb-10">
+            <span className="inline-block px-3 md:px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
+              Why Choose Us
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+              Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Towing Service</span>
+            </h2>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {features.map((feature, index) => (
               <motion.div
@@ -96,8 +112,40 @@ const EmergencyTowing = () => {
         </div>
       </section>
 
-      {/* Benefits - KEEP EXACTLY AS IS */}
+      {/* Vehicles - KEEP EXACTLY AS IS */}
       <section className="py-10 md:py-14 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-8 md:mb-12">
+            <span className="inline-block px-3 md:px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
+              <FaCar className="inline mr-2" />
+              Vehicles We Tow
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+              Vehicles We <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Tow</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {vehicles.map((vehicle, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-gray-50 rounded-xl p-4 md:p-6 text-center hover:shadow-lg transition-all group"
+              >
+                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-3 group-hover:bg-blue-100 transition-colors">
+                  <span className="text-blue-500">{vehicle.icon}</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm md:text-base">{vehicle.name}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits - KEEP EXACTLY AS IS */}
+      <section className="py-10 md:py-14 bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
@@ -106,13 +154,14 @@ const EmergencyTowing = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-3 md:px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-medium mb-3 md:mb-4">
-                Why Choose Us
+                <FaShieldAlt className="inline mr-2" />
+                Our Promise
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
-                Why Choose Our <span className="text-blue-500">Emergency Towing</span>
+                Professional <span className="text-blue-500">Towing</span> You Can Trust
               </h2>
               <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-6">
-                We understand that emergencies can happen at any time. That's why we're always ready to help.
+                We provide reliable and affordable towing services for all your light and medium duty vehicles.
               </p>
               <ul className="space-y-2 md:space-y-3">
                 {benefits.map((benefit, index) => (
@@ -141,7 +190,7 @@ const EmergencyTowing = () => {
             >
               <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                 <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                  <FaAmbulance className="text-blue-500 text-xl" />
+                  <FaTachometerAlt className="text-blue-500 text-xl" />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 text-sm md:text-base">Fast Response Time</h4>
@@ -171,13 +220,19 @@ const EmergencyTowing = () => {
             <div className="w-14 h-14 md:w-20 md:h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <FaPhoneAlt className="text-2xl md:text-3xl text-white" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Need Emergency Towing?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Need Towing Service?</h2>
             <p className="text-white/80 mt-2 md:mt-3 text-sm sm:text-base">
-              Our team is ready to assist you 24/7. Call us now for immediate help.
+              Fast, reliable, and affordable towing for your vehicle.
             </p>
-            <a href="tel:+18005550199" className="inline-block mt-4 md:mt-6 bg-white text-blue-600 hover:bg-gray-100 font-bold py-2.5 md:py-3 px-5 md:px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2 mx-auto text-sm md:text-base">
-              <FaPhoneAlt /> Call Now: +1-800-555-0199
-            </a>
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-4 md:mt-6">
+              <a href="tel:+18005550199" className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-2.5 md:py-3 px-5 md:px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2 text-sm md:text-base">
+                <FaPhoneAlt /> Call Now: +1-800-555-0199
+              </a>
+              <Link to="/contact" className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 font-semibold py-2.5 md:py-3 px-5 md:px-8 rounded-xl transition-all duration-300 flex items-center gap-2 text-sm md:text-base">
+                <FaHeadset /> Contact Us
+              </Link>
+            </div>
+            <p className="text-white/60 text-xs md:text-sm mt-3">Available 24/7 for all your towing needs</p>
           </div>
         </div>
       </section>
@@ -185,4 +240,4 @@ const EmergencyTowing = () => {
   );
 };
 
-export default EmergencyTowing;
+export default LightMediumTowing;
