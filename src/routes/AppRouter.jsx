@@ -10,7 +10,7 @@ const Rentals = lazy(() => import('../components/pages/Rentals/Rentals'));
 const BuyCars = lazy(() => import('../components/pages/BuyCars/BuyCars'));
 const SellCar = lazy(() => import('../components/pages/SellCar/SellCar'));
 const RoadsideAssistance = lazy(() => import('../components/pages/RoadsideAsistance/RoadsideAssistance'));
-const Membership = lazy(() => import('../components/pages/Membership/Membership'));
+const Membership = lazy(() => import('../components/pages/Membership/MemberShip'));
 const Contact = lazy(() => import('../components/pages/Contact/Contact'));
 const BookNow = lazy(() => import('../components/pages/BookNow/BookNow'));
 const TruckDriver = lazy(() => import('../components/pages/TruckDriver/TruckDriver'));

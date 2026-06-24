@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import MembershipPlans from './MembershipPlans';
-import MembershipBenefits from './MembershipBenefits';
+import MembershipPlans from './MemberShipPlans';
+import MembershipBenefits from './MemberShipBenefits';
 
 const Membership = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
