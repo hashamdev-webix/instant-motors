@@ -8,15 +8,15 @@ import SignUp from '../components/Auth/SignUp';
 import ForgotPassword from '../components/Auth/ForgotPassword';
 
 // Lazy load pages for better performance
-const Home = lazy(() => import('../components/pages/Home/Home'));
-const Rentals = lazy(() => import('../components/pages/Rentals/Rentals'));
-const BuyCars = lazy(() => import('../components/pages/BuyCars/BuyCars'));
-const SellCar = lazy(() => import('../components/pages/SellCar/SellCar'));
-const RoadsideAssistance = lazy(() => import('../components/pages/RoadsideAssistance/RoadsideAssistance'));
-const Membership = lazy(() => import('../components/pages/Membership/Membership'));
-const Contact = lazy(() => import('../components/pages/Contact/Contact'));
-const BookNow = lazy(() => import('../components/pages/BookNow/BookNow'));
-const TruckDriver = lazy(() => import('../components/pages/TruckDriver/TruckDriver'));
+const Home = lazy(() => import('../components/pages/Home/Home.jsx'));
+const Rentals = lazy(() => import('../components/pages/Rentals/Rentals.jsx'));
+const BuyCars = lazy(() => import('../components/pages/BuyCars/BuyCars.jsx'));
+const SellCar = lazy(() => import('../components/pages/SellCar/SellCar.jsx'));
+const RoadsideAssistance = lazy(() => import('../components/pages/RoadsideAssistance/RoadsideAssistance.jsx'));
+const Membership = lazy(() => import('../components/pages/Membership/Membership.jsx'));
+const Contact = lazy(() => import('../components/pages/Contact/Contact.jsx'));
+const BookNow = lazy(() => import('../components/pages/BookNow/BookNow.jsx'));
+const TruckDriver = lazy(() => import('../components/pages/TruckDriver/TruckDriver.jsx'));
 
 // Towing Services Pages
 const TowingServices = lazy(() => import('../components/pages/RoadsideAssistance/RoadsideAssistance'));
@@ -44,8 +44,8 @@ const AppRouter = () => {
           {/* Main Pages */}
           <Route index element={<Home />} />
           <Route path="rentals" element={<Rentals />} />
-          <Route path="buy-cars" element={<BuyCars />} />
-          <Route path="buy-cars/:id" element={<CarDetails />} />
+          <Route path="buyCars" element={<BuyCars />} />
+          <Route path="buyCars/:id" element={<CarDetails />} />
           <Route path="sell-car" element={<SellCar />} />
           <Route path="roadside-assistance" element={<RoadsideAssistance />} />
           <Route path="membership" element={<Membership />} />

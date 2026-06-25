@@ -69,7 +69,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Rentals', path: '/rentals' },
-    { name: 'Buy Cars', path: '/buy-cars' },
+    { name: 'Buy Cars', path: '/buyCars' },
     { name: 'Sell Car', path: '/sell-car' },
     { name: 'Membership', path: '/membership' },
     { name: 'Contact', path: '/contact' },
