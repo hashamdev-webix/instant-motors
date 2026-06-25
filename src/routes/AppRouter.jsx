@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 import Loader from '../components/common/Loader';
 import CarDetails from '../components/pages/BuyCars/CarDetails';
+import Login from '../components/Auth/Login';
+import SignUp from '../components/Auth/SignUp';
+import ForgotPassword from '../components/Auth/ForgotPassword';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('../components/pages/Home/Home'));
@@ -15,7 +18,7 @@ const Contact = lazy(() => import('../components/pages/Contact/Contact'));
 const BookNow = lazy(() => import('../components/pages/BookNow/BookNow'));
 const TruckDriver = lazy(() => import('../components/pages/TruckDriver/TruckDriver'));
 
-// Towing Services Pages - FIXED FILE NAMES
+// Towing Services Pages
 const TowingServices = lazy(() => import('../components/pages/RoadsideAssistance/RoadsideAssistance'));
 const EmergencyTowing = lazy(() => import('../components/pages/RoadsideAssistance/EmergencyCard'));
 const HeavyDutyTowing = lazy(() => import('../components/pages/RoadsideAssistance/HeavyDutyTowing'));
@@ -31,6 +34,12 @@ const AppRouter = () => {
   return (
     <Suspense fallback={<Loader fullScreen />}>
       <Routes>
+        {/* ===== AUTH ROUTES - Outside MainLayout (No Navbar/Footer) ===== */}
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/signup" element={<SignUp />} />
+        <Route path="/auth/forgotPassword" element={<ForgotPassword />} />
+
+        {/* ===== MAIN ROUTES - Inside MainLayout (With Navbar/Footer) ===== */}
         <Route path="/" element={<MainLayout />}>
           {/* Main Pages */}
           <Route index element={<Home />} />

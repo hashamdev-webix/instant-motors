@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/logo-removebg-preview.png";
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,8 +10,26 @@ const Navbar = () => {
   const [isTowingOpen, setIsTowingOpen] = useState(false);
   const [isMobileTowingOpen, setIsMobileTowingOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const dropdownRef = useRef(null);
   let hoverTimeout = useRef(null);
+
+  // Check if user is logged in
+  const isAuthenticated = () => {
+    return !!localStorage.getItem('authToken');
+  };
+
+  // Handle Book Now click
+  const handleBookNowClick = (e) => {
+    if (!isAuthenticated()) {
+      e.preventDefault();
+      toast.error('Please login to continue');
+      navigate('/auth/login');
+      return;
+    }
+    // If logged in, navigate to book-now
+    navigate('/book-now');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -159,14 +178,15 @@ const Navbar = () => {
 
             {/* Book Now - Right */}
             <div className="flex-shrink-0 flex items-center gap-3">
-              <Link
-                to="/book-now"
+              {/* Book Now Button with Login Check */}
+              <button
+                onClick={handleBookNowClick}
                 className={`hidden lg:inline-block px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg text-sm transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 ${
                   isActive('/book-now') ? 'ring-2 ring-primary-300 ring-offset-2' : ''
                 }`}
               >
                 Book Now
-              </Link>
+              </button>
 
               {/* Mobile Menu Button */}
               <button
@@ -265,16 +285,15 @@ const Navbar = () => {
                     </AnimatePresence>
                   </div>
 
-                  {/* Mobile Book Now */}
-                  <Link
-                    to="/book-now"
-                    onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-all duration-200 bg-primary-600 text-white hover:bg-primary-700 ${
+                  {/* Mobile Book Now with Login Check */}
+                  <button
+                    onClick={handleBookNowClick}
+                    className={`block w-full text-center px-4 py-2.5 rounded-lg text-base font-medium transition-all duration-200 bg-primary-600 text-white hover:bg-primary-700 ${
                       isActive('/book-now') ? 'ring-2 ring-primary-300 ring-offset-2' : ''
                     }`}
                   >
                     Book Now
-                  </Link>
+                  </button>
                 </div>
               </motion.div>
             )}
