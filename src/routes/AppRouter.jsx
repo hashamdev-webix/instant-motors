@@ -6,6 +6,9 @@ import CarDetails from '../components/pages/BuyCars/CarDetails';
 import Login from '../components/Auth/Login';
 import SignUp from '../components/Auth/SignUp';
 import ForgotPassword from '../components/Auth/ForgotPassword';
+import TermsOfService from '../components/pages/Terms/TermsOfService.jsx';
+import PrivacyPolicy from '../components/pages/Terms/PrivacyPolicy.jsx';
+import Checkout from '../components/pages/Checkout/CheckOut.jsx';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('../components/pages/Home/Home.jsx'));
@@ -44,14 +47,18 @@ const AppRouter = () => {
           {/* Main Pages */}
           <Route index element={<Home />} />
           <Route path="rentals" element={<Rentals />} />
-          <Route path="buyCars" element={<BuyCars />} />
-          <Route path="buyCars/:id" element={<CarDetails />} />
+          <Route path="buy-cars" element={<BuyCars />} />
+          <Route path="buy-cars/:id" element={<CarDetails />} />
           <Route path="sell-car" element={<SellCar />} />
           <Route path="roadside-assistance" element={<RoadsideAssistance />} />
           <Route path="membership" element={<Membership />} />
           <Route path="contact" element={<Contact />} />
           <Route path="book-now" element={<BookNow />} />
           <Route path="truck-driver" element={<TruckDriver />} />
+             <Route path="terms" element={<TermsOfService/>} />
+          <Route path="privacy" element={<PrivacyPolicy />} />
+          {/* Checkout */}
+          <Route path="checkout" element={<Checkout />} />
 
           {/* Towing Services Routes */}
           <Route path="towing" element={<TowingServices />} />

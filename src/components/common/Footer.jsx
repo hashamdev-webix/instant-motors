@@ -27,7 +27,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <img src={logo} alt="" sizes="" srcset=""  className='rounded-2xl'/>
+              <img src={logo} alt="logo"  className='rounded-2xl h-12 w-auto'/>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Your trusted partner for car rentals, sales, and roadside assistance.

@@ -1,6 +1,7 @@
 // src/components/pages/BuyCars/BuyCars.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   FaCar, 
   FaSearch, 
@@ -22,16 +23,20 @@ import {
   FaCarSide,
   FaThumbsUp,
   FaShieldAlt as FaShield,
-  FaRocket
+  FaRocket,
+  FaShoppingCart
 } from 'react-icons/fa';
 import CarFilters from './CarFilters';
 import { CarGrid } from './CarCard';
 import { MOCK_CARS } from '../../../constants/carData';
 import { useCarFilter } from '../../../hooks/useCarFilter';
+import toast from 'react-hot-toast';
 
 const BuyCars = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('browse'); // 'browse', 'sell', 'finance'
+  const [activeTab, setActiveTab] = useState('browse');
+  const [cartItems, setCartItems] = useState([]);
   
   const {
     filters,
@@ -48,10 +53,21 @@ const BuyCars = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Load cart from localStorage
+  useEffect(() => {
+    const savedCart = localStorage.getItem('checkoutCart');
+    if (savedCart) {
+      try {
+        setCartItems(JSON.parse(savedCart));
+      } catch (e) {
+        setCartItems([]);
+      }
+    }
+  }, []);
+
   // Handle tab switching
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    // Scroll to content
     const contentSection = document.getElementById('buy-cars-content');
     if (contentSection) {
       contentSection.scrollIntoView({ behavior: 'smooth' });
@@ -62,6 +78,20 @@ const BuyCars = () => {
   const handleViewAllCars = () => {
     console.log('View all cars clicked - showing all cars');
     resetFilters();
+  };
+
+  // Handle Add to Cart / Buy Now
+  const handleBuyNow = (car) => {
+    // Add to cart
+    const updatedCart = [...cartItems, { ...car, quantity: 1 }];
+    setCartItems(updatedCart);
+    localStorage.setItem('checkoutCart', JSON.stringify(updatedCart));
+    toast.success(`${car.name} added to cart!`);
+    
+    // Navigate to checkout
+    navigate('/checkout', { 
+      state: { cartItems: updatedCart } 
+    });
   };
 
   // Features data for the hero section
@@ -304,13 +334,24 @@ const BuyCars = () => {
           {/* Tab Content */}
           {activeTab === 'browse' && (
             <>
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                  Browse Our Inventory
-                </h2>
-                <p className="text-gray-600 mt-1">
-                  Find the perfect car from our extensive collection
-                </p>
+              <div className="flex justify-between items-center mb-8">
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                    Browse Our Inventory
+                  </h2>
+                  <p className="text-gray-600 mt-1">
+                    Find the perfect car from our extensive collection
+                  </p>
+                </div>
+                {cartItems.length > 0 && (
+                  <button
+                    onClick={() => navigate('/checkout')}
+                    className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    <FaShoppingCart />
+                    Cart ({cartItems.length})
+                  </button>
+                )}
               </div>
 
               <CarFilters 
@@ -330,6 +371,7 @@ const BuyCars = () => {
                   onViewAll={handleViewAllCars}
                   title="Our Inventory"
                   showViewAll={true}
+                  onBuyNow={handleBuyNow}
                 />
               )}
             </>
